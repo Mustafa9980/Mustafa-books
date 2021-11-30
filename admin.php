@@ -130,7 +130,8 @@ if (
 
 
                 </td>
-                <td><a href="" class="btn btn-warning ">Edit</a>
+                <td><a href="Edit-book.php?id=<?=$book['id']?>" 
+                 class="btn btn-warning ">Edit</a>
                   <a href="" class="btn btn-danger ">Delete</a>
 
                 </td>
@@ -167,7 +168,8 @@ if (
               ?>
                 <td><?= $count ?></td>
                 <td><?= $category['name'] ?></td>
-                <td><a href="" class="btn btn-warning ">Edit</a>
+                <td><a href="Edit-category.php?id=<?=$category['id']?>"
+                 class="btn btn-warning ">Edit</a>
                   <a href="" class="btn btn-danger ">Delete</a>
 
                 </td>
@@ -206,7 +208,8 @@ if (
               ?>
                 <td><?= $count ?></td>
                 <td><?= $author['name'] ?></td>
-                <td><a href="" class="btn btn-warning ">Edit</a>
+                <td><a href="Edit-author.php?id=<?=$author['id']?>" 
+                class="btn btn-warning ">Edit</a>
                   <a href="" class="btn btn-danger ">Delete</a>
 
                 </td>
