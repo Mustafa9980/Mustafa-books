@@ -12,6 +12,8 @@ function get_books($con)
     }
     return $books;
 }
+
+
 # Get  book by ID function
 function get_up_book($con, $id){
     $sql  = "SELECT * FROM books WHERE id=?";
@@ -28,4 +30,22 @@ function get_up_book($con, $id){
  }
 
  
+ 
+ #  search books  function
+
+
+ function search_books($con,$key) {
+     $key="%{$key}%";
+ 
+     $sql = "SELECT * FROM books where title LIKE ? OR  description LIKE ?";
+     $stmt = $con->prepare($sql);
+     $stmt->execute([$key,$key]);
+     if ($stmt->rowCount() > 0) {
+         $books = $stmt->fetchAll();
+     } else {
+         $books = 0;
+     }
+     return $books;
+ }
+
 ?>

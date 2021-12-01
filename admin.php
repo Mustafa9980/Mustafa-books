@@ -63,11 +63,50 @@ if (
           </div>
         </div>
       </nav>
-      <?php
-      if ($books == 0) { ?>
-        empty
+      <form
+      style="width:100%  ;   max-width:30rem" action="search.php"
+      method="GET"
+      
+      >
 
-      <?php } else { ?>
+      <div class="input-group my-5">
+      <input type="text" class="form-control"
+       placeholder="Search Book..."
+       name="key" 
+       aria-label="Search Book..." 
+       aria-describedby="basic-addon2">
+       <button class="input-group-text
+        btn btn-primary" 
+       id="basic-addon2">
+      <img src="img/search.png"
+      width="20" >
+      </button>
+      </div>
+      </form>
+
+      <div class="mt-5"></div>
+        <?php if (isset($_GET['error'])) { ?>
+          <div class="alert alert-danger" role="alert">
+			  <?=htmlspecialchars($_GET['error']); ?>
+		  </div>
+		<?php } ?>
+		<?php if (isset($_GET['success'])) { ?>
+          <div class="alert alert-success" role="alert">
+			  <?=htmlspecialchars($_GET['success']); ?>
+		  </div>
+		<?php } ?>
+
+
+        <?php  if ($books == 0) { ?>
+        	<div class="alert alert-warning 
+        	            text-center p-5" 
+        	     role="alert">
+        	     <img src="img/empty.png" 
+        	          width="100">
+        	     <br>
+			  There is no book in the database
+		  </div>
+        <?php }else {?>
         <h4 class="mt-5"> All Books</h4>
         <table class="table table-bordered shadow">
           <thead>
@@ -132,7 +171,7 @@ if (
                 </td>
                 <td><a href="Edit-book.php?id=<?=$book['id']?>" 
                  class="btn btn-warning ">Edit</a>
-                  <a href="" class="btn btn-danger ">Delete</a>
+                  <a href="http/delete-book.php?id=<?=$book['id']?>" class="btn btn-danger ">Delete</a>
 
                 </td>
 
@@ -144,8 +183,15 @@ if (
         </table>
       <?php } ?>
       <?php
-      if ($category == 0) { ?>
-        empty
+      if ($categorys == 0) { ?>
+        	<div class="alert alert-warning 
+        	            text-center p-5" 
+        	     role="alert">
+        	     <img src="img/empty.png" 
+        	          width="100">
+        	     <br>
+			  There is no categorys in the database
+		  </div>
 
       <?php } else { ?>
         <h4 class="mt-5"> All category</h4>
@@ -170,7 +216,7 @@ if (
                 <td><?= $category['name'] ?></td>
                 <td><a href="Edit-category.php?id=<?=$category['id']?>"
                  class="btn btn-warning ">Edit</a>
-                  <a href="" class="btn btn-danger ">Delete</a>
+                  <a href="http/delete-category.php?id=<?=$category['id']?>"  class="btn btn-danger ">Delete</a>
 
                 </td>
 
@@ -185,7 +231,14 @@ if (
       <?php } ?>
       <?php
       if ($authors == 0) { ?>
-        empty
+        <div class="alert alert-warning 
+        	            text-center p-5" 
+        	     role="alert">
+        	     <img src="img/empty.png" 
+        	          width="100">
+        	     <br>
+			  There is no authors in the database
+		  </div>
 
       <?php } else { ?>
         <h4 class="mt-5"> All authors</h4>
@@ -210,7 +263,7 @@ if (
                 <td><?= $author['name'] ?></td>
                 <td><a href="Edit-author.php?id=<?=$author['id']?>" 
                 class="btn btn-warning ">Edit</a>
-                  <a href="" class="btn btn-danger ">Delete</a>
+                  <a href="http/delete-author.php?id=<?=$author['id']?>" class="btn btn-danger ">Delete</a>
 
                 </td>
 
