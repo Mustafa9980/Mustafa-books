@@ -48,4 +48,40 @@ function get_up_book($con, $id){
      return $books;
  }
 
+
+
+ # Get  book by categorys
+function get_books_By_categorys($con, $id){
+    $sql  = "SELECT * FROM books WHERE category_id=?";
+    $stmt = $con->prepare($sql);
+    $stmt->execute([$id]);
+ 
+    if ($stmt->rowCount() > 0) {
+          $books = $stmt->fetchAll();
+    }else {
+       $books = 0;
+    }
+ 
+    return $books;
+ }
+
+
+
+
+  # Get  book by authors
+function get_books_By_authors($con, $id){
+    $sql  = "SELECT * FROM books WHERE author_id=?";
+    $stmt = $con->prepare($sql);
+    $stmt->execute([$id]);
+ 
+    if ($stmt->rowCount() > 0) {
+          $books = $stmt->fetchAll();
+    }else {
+       $books = 0;
+    }
+ 
+    return $books;
+ }
+
+
 ?>
